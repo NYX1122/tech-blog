@@ -1,7 +1,7 @@
-<ol>
+<div class="container mt-5">
     {{#each posts as |post|}}
-    <li>
-        {{> post post }}
-    </li>
+    <div class="row justify-content-start mb-3">
+        {{> post-card post }}
+    </div>
     {{/each}}
-</ol>
+</div>
