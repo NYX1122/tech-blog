@@ -29,7 +29,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('login')
+    const identifier = {
+        which: 'Login',
+        button: 'Login!',
+        alternate: 'Sign up instead',
+        url: '/signup'
+    }
+    res.render('login', {
+        identifier
+    });
 });
 
 module.exports = router;
