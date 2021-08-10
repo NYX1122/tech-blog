@@ -6,29 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Just Tech News</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-            <h1>The Tech Blog</h1>
-            <nav>
-                {{#if loggedIn}}
-                <button id="logout" class="btn-no-style">logout</button>
-                {{else}}
-                <a href="/login">login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-    </div>
+    <header class="container">
+        <div class="row row-cols-auto">
+            <div class="col"><a href="/" class="display-6">Home</a></div>
+            <div class="col"><a href="/dashboard">Dashboard</a></div>
+            <div class="col"><a href="/logout">Logout</a></div>
+        </div>
+        <h1>The Tech Blog</h1>
+        <nav>
+            {{#if loggedIn}}
+            <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
