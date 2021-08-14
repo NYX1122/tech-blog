@@ -31,11 +31,21 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     const identifier = {
         which: 'Login',
-        button: 'Login!',
-        alternate: 'Sign up instead',
+        alternate: 'Sign up',
         url: '/signup'
     }
-    res.render('login', {
+    res.render('form', {
+        identifier
+    });
+});
+
+router.get('/signup', (req, res) => {
+    const identifier = {
+        which: 'Signup',
+        alternate: 'Login',
+        url: '/login'
+    }
+    res.render('form', {
         identifier
     });
 });

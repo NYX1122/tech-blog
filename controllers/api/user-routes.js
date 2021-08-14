@@ -3,11 +3,11 @@ const { User, Post, Comment } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll()
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.get('/:id', (req, res) => {
@@ -26,11 +26,11 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post('/', (req, res) => {
@@ -38,19 +38,43 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password
     })
-      .then(dbUserData => {
-          req.session.save(() => {
-              req.session.user_id = dbUserData.id;
-              req.session.username = dbUserData.username;
-              req.session.loggedIn = true;
+        .then(dbUserData => {
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
 
-              res.json(dbUserData);
-          });
-      })
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+                res.json(dbUserData);
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'User not found' });
+            } else if (dbUserData.password === req.body.password) {
+                req.session.save(() => {
+                    req.session.user_id = dbUserData.id;
+                    req.session.username = dbUserData.username;
+                    res.json({ user: dbUserData, message: 'Logged in!' });
+                });
+            } else {
+                res.status(400).json({ message: 'Invalid password' });
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        });
 });
 
 module.exports = router;
