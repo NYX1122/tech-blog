@@ -12,7 +12,7 @@ async function signupHandler() {
         });
 
         if (response.ok) {
-            //document.location.replace('/dashboard');
+            document.location.replace('/dashboard');
         } else {
             response.json().then(function(data) {
                 console.log(data);
@@ -38,7 +38,7 @@ async function loginHandler() {
 
         if (response.ok) {
             console.log('yas');
-            //document.location.replace('/dashboard');
+            document.location.replace('/dashboard');
         } else {
             if (response.status === 404) {
                 alert('Invalid username');
