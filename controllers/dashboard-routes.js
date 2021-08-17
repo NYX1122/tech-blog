@@ -16,4 +16,13 @@ router.get('/', (req, res) => {
       });
 });
 
+router.get('/new-post', (req, res) => {
+    const which = {
+        title: 'Create New',
+        button: 'Create',
+        user: req.session.user_id
+    }
+    res.render('dashboard/new-post', { layout: 'dashboard', which });
+});
+
 module.exports = router;

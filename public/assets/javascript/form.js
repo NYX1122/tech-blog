@@ -37,7 +37,6 @@ async function loginHandler() {
         });
 
         if (response.ok) {
-            console.log('yas');
             document.location.replace('/dashboard');
         } else {
             if (response.status === 404) {
