@@ -1,4 +1,4 @@
-async function newPostHandler () {
+async function newPostHandler() {
     const title = $('#title').val().trim();
     const contents = $('#content').val().trim();
     const user_id = $('#button').attr('user');
@@ -22,7 +22,7 @@ async function newPostHandler () {
             alert(response.statusText);
         }
     } else {
-        alert('Please fill out all forms before continuing');
+        alert('Please fill out all fields before continuing');
     }
 }
 

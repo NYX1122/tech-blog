@@ -1,6 +1,6 @@
 <div class="d-grid mt-5">
     {{#each posts as |post|}}
-    <button type="button" class="container mb-3 btn btn-info">
+    <button type="button" class="container mb-3 btn btn-info" id="{{post.id}}">
         {{> dashboard/dashboard-card post }}
     </button>
     {{/each}}

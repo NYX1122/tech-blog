@@ -2,13 +2,26 @@
     <div class="row"><p class="py-2 mb-1 fs-2 bg-info text-white">{{title}} Post</p></div>
     <label for="title" class="row ms-3 mb-2 fs-3">Title</label>
     <div class="row">
+        {{#if edit}}
+        <input type="text" class="col mx-3 mb-3 form-control fs-4" id="title" placeholder="{{prevTitle}}">
+        {{else}}
         <input type="text" class="col mx-3 mb-3 form-control fs-4" id="title" placeholder="title">
+        {{/if}}
     </div>
         <label for="content" class="row ms-3 mb-2 fs-3">Content</label>
     <div class="row">
+        {{#if edit}}
+        <input type="text" class="col mx-3 mb-3 form-control fs-4" id="content" placeholder="{{prevContent}}">
+        {{else}}
         <input type="text" class="col mx-3 mb-3 form-control fs-4" id="content" placeholder="content">
+        {{/if}}
     </div>
     <div class="row mx-2">
         <button type="button" class="btn btn-info text-white fs-4" id="button" user="{{user}}">{{button}}</button>
     </div>
+    {{#if edit}}
+    <div class="row mx-2 mt-3">
+        <button type="button" class="btn btn-info text-white fs-4" id="button-delete">Delete</button>
+    </div>
+    {{/if}}
 </div>

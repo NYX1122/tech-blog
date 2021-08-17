@@ -3,8 +3,11 @@ const newPostButtonHandler = () => {
 }
 
 const postButtonHandler = () => {
-    document.location.replace('/dashboard/edit-post');
+    
+    //document.location.replace('/dashboard/edit-post/' + $(this).attr('id'));
 }
 
 $('#new-post').on('click', newPostButtonHandler);
-$('.container').on('click', postButtonHandler);
+$('.container').on('click', function() {
+    document.location.replace(`/dashboard/edit-post/${$(this).attr('id')}`);
+});
