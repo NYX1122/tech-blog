@@ -1,7 +1,11 @@
-<div class="container mt-5">
+<div class="d-grid mt-5">
     {{#each posts as |post|}}
-    <div class="row justify-content-start mb-3 bg-info border border-info rounded-3">
+    <button type="button" class="container mb-3 btn btn-info">
         {{> dashboard/dashboard-card post }}
-    </div>
+    </button>
     {{/each}}
 </div>
+<div class="position relative">
+    <button class="position-absolute bottom-0 start-50 translate-middle mb-2 btn btn-info btn-large text-white fs-2 mb-auto" id="new-post">+ New Post</button>
+</div>
+<script src="./assets/javascript/dashboardHome.js"></script>
