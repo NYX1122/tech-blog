@@ -25,7 +25,7 @@ This installation process is for locally hosted clones of Tech-Blog:
 First create an account, then have fun posting and commenting whatever you like.
 
 ### Screenshot:
-![Capture](http://full/path/to/img.jpg "Optional title")
+![Capture](https://github.com/NYX1122/tech-blog/blob/main/Capture.JPG)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
