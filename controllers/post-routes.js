@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
       .then(dbPostData => {
           const post = dbPostData.get({ plain: true });
           console.log(post);
-          res.render('post/single-post', {post});
+          res.render('post/single-post', { post, loggedIn: req.session.loggedIn });
       })
       .catch(err => {
           console.log(err);

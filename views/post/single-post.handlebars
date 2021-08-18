@@ -1,13 +1,13 @@
 <div class="mt-5">
     {{> post-card post}}
 </div>
-
-<div class="container mt-3">
-    <div class="row">
-        <button class="col btn btn-info fs-4">Comment</button>
+{{#if loggedIn}}
+<div class="container mt-3" id="container">
+    <div class="row" id="row">
+        <button type="button" class="col btn btn-info fs-4" id="new-comment">Comment</button>
     </div>
 </div>
-
+{{/if}}
 <article class="container mt-3 border border-info border-5">
     <div class="row bg-info text-light">
         <p class="col fs-4 my-1 text-reset text-decoration-none">Comments</p>
@@ -16,3 +16,5 @@
         {{> post/comment-card comment }}
     {{/each}}
 </article>
+
+<script src="/assets/javascript/newComment.js"></script>
